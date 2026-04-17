@@ -9,7 +9,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from getbest import getCols, findTop
 
-def test_getCols__basic():
+def test_getCols_basic():
     ''' Testing if getCols finds the right columns '''
     print("Testing getCols")
     csv_header = "Course,Student Number,Mark,Comment\n"
@@ -20,7 +20,7 @@ def test_getCols__basic():
     assert mark_col == 2, f"Expected Mark at index 2: {mark_col}"
     print("getCols testcase passed")
 
-def test_findTop_basic()::
+def test_findTop_basic():
     ''' Testing if findTop finds best student '''
     print("Testing findTop")
     csv_data = ''' 16001, 72
@@ -33,7 +33,7 @@ def test_findTop_basic()::
     assert best_mark == 90, f"Expected mark {best_mark}"
     print("findTop testcase passed")
 
-def test__reversed__columns():
+def test_reversed_columns():
     '''Testing if the columns are read correctly even if the column order is reversed'''
     print("Testing with reversed columns")
     csv_header = "Mark,Course,Student Number,Comment\n"
@@ -49,7 +49,7 @@ def test_new_files():
     print("Testing new files")
 
     #Getting the root
-    base_dir = os.path.dirname(os.path.abspath(__file___))
+    base_dir = os.path.dirname(os.path.abspath(__file__))
 
     #Test 1
     file1_path = os.path.join(base_dir, "test1.csv")
@@ -69,7 +69,7 @@ def test_new_files():
 
     #Test 2 (reversed)
     file2_path = os.path.join(base_dir, "test2.csv")
-    with open(file2_path, "r") as f:
+    with open(file2_path, 'r') as f:
         num_col, mark_col = getCols(f)
 
         #checking if correct columns are found
@@ -93,4 +93,4 @@ if __name__ == "__main__":
         test_new_files()
         print("All Testcases Passed!")
     except AssertionError as e:
-        print(f"Test Failed: {e}"}
+        print(f"Test Failed: {e}")
